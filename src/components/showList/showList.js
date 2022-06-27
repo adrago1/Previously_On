@@ -39,6 +39,23 @@ export default function ShowList() {
         
     });
 
+    /*
+    if (searchByName !== "") {
+        axios.get("https://api.betaseries.com/shows/search", {
+            params: {
+                client_id: "22f661bdce5c",
+                order: "popularity",
+                title: searchByName
+            }
+        }).then(res => {
+            setShowListing(res.data.shows);
+            setCurrentPage(1);
+        }).catch(error => {
+            console.log(error.response);
+        })
+
+    }
+    */
 
     const currentShowArray = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * PageSize;
