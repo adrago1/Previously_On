@@ -12,31 +12,33 @@ export default function ShowList() {
     const [showListing, setShowListing] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [searchByName, setSearchByName] = useState("");
+    const [charged, setCharged] = useState(false);
 
     useEffect(() => {
+        if (!charged) {
+            let mounted = true;
+            axios.get("https://api.betaseries.com/shows/list", {
+                params: {
+                    client_id: "22f661bdce5c",
+                    order: "popularity",
+                    limit: "200",
+                }
+            }).then(res => {
+                if (mounted) {
+                    setShowListing(res.data.shows);
+                    setCurrentPage(1);
+                    setLoading(false);
+                    setCharged(true);
+                }
+            }).catch(error => {
+                console.log(error.response);
+                console.log(searchByName);
+            })
 
-        let mounted = true;
-        axios.get("https://api.betaseries.com/shows/list", {
-            params: {
-                client_id: "22f661bdce5c",
-                order: "popularity",
-                limit: "200",
+            return function cleanup() {
+                mounted = false;
             }
-        }).then(res => {
-            if (mounted) {
-                setShowListing(res.data.shows);
-                setCurrentPage(1);
-                setLoading(false);
-            }
-        }).catch(error => {
-            console.log(error.response);
-            console.log(searchByName);
-        })
-
-        return function cleanup() {
-            mounted = false;
         }
-        
     });
 
     /*
@@ -74,7 +76,7 @@ export default function ShowList() {
                 <div className="grid gap-x-8 gap-y-8 gap col-span-2 grid-cols-2">
                     {currentShowArray.map(function(data) {
                         return(
-                            <div className="font-roboto rounded-r-lg bg-gray-500 bg-opacity-30">
+                            <div key={data.id} className="font-roboto rounded-r-lg bg-gray-500 bg-opacity-30">
                                 <Link to={{pathname: '/serie/details', state: data.id}}><img src={data.images.poster} alt={"Affiche de la série "+data.title} href="Affiche de série" className="float-left w-2/5 mr-2"/></Link>
                                 <div className="infos-thumb-show my-1">
                                     <Link to={{pathname: '/serie/details', state: data.id}} aria className="text-xl text-yellow-400 font-bold filter contrast-150">{data.title}</Link>

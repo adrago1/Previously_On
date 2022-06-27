@@ -10,44 +10,48 @@ export default function Friends() {
     const [friendInput, setFriendInput] = useState("");
     const [friendRequest, setFriendRequest] = useState([]);
     const [blocked, setBlocked] = useState(false);
+    const [charged, setCharged] = useState(false);
 
 
     useEffect(() => {
-        let mounted = true;
-        axios.get("https://api.betaseries.com/friends/list", {
-            params: {
-                client_id: "22f661bdce5c",
-                id: user.user.id,
-                token: user.token
-            }
-        }).then(res => {
-            if (mounted) {
-                setFriendList(res.data.users);
-                console.log(res.data.users);
-                setLoading(false);
-            }
-        }).catch(error => {
-            console.log(error.response);
-        })
+        if (!charged) {
+            let mounted = true;
+            axios.get("https://api.betaseries.com/friends/list", {
+                params: {
+                    client_id: "22f661bdce5c",
+                    id: user.user.id,
+                    token: user.token
+                }
+            }).then(res => {
+                if (mounted) {
+                    setFriendList(res.data.users);
+                    console.log(res.data.users);
+                    setLoading(false);
+                    setCharged(true);
+                }
+            }).catch(error => {
+                console.log(error.response);
+            })
 
-        axios.get("https://api.betaseries.com/friends/requests", {
-            params: {
-                client_id: "22f661bdce5c",
-                token: user.token,
-            }
-        }).then(res => {
-            if (mounted) {
-                setFriendRequest(res.data.users);
-                console.log(res.data.users);
-                setLoading(false);
-            }
-        }).catch(error => {
-            console.log(error.response);
-            console.log(friendRequest);
-        })
+            axios.get("https://api.betaseries.com/friends/requests", {
+                params: {
+                    client_id: "22f661bdce5c",
+                    token: user.token,
+                }
+            }).then(res => {
+                if (mounted) {
+                    setFriendRequest(res.data.users);
+                    console.log(res.data.users);
+                    setLoading(false);
+                }
+            }).catch(error => {
+                console.log(error.response);
+                console.log(friendRequest);
+            })
 
-        return function cleanup() {
-            mounted = false;
+            return function cleanup() {
+                mounted = false;
+            }
         }
     })
 

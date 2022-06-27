@@ -15,29 +15,31 @@ export default function ShowDetail() {
     const [addShowMsg, setAddShowMsg] = useState("");
     const [episodes, setEpisodes] = useState([]);
     const [marked, setMarked] = useState(false);
+    const [charged, setCharged] = useState(false);
     
 
     useEffect(() => {
-        
-        let mounted = true;
-        axios.get("https://api.betaseries.com/shows/display", {
-            params: {
-                client_id: "22f661bdce5c",
-                id: state
-            }
-        }).then(res => {
-            if (mounted) {
-                setShowDetails(res.data.show);
-                setLoading(false);
-            }
-        }).catch(error => {
-            console.log(error.response);
-        })
+        if (!charged) {
+            let mounted = true;
+            axios.get("https://api.betaseries.com/shows/display", {
+                params: {
+                    client_id: "22f661bdce5c",
+                    id: state
+                }
+            }).then(res => {
+                if (mounted) {
+                    setShowDetails(res.data.show);
+                    setLoading(false);
+                    setCharged(true);
+                }
+            }).catch(error => {
+                console.log(error.response);
+            })
 
-        return function cleanup() {
-            mounted = false;
+            return function cleanup() {
+                mounted = false;
+            }
         }
-
     })
 
     const addShowToUser = (e) => {

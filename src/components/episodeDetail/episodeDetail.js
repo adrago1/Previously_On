@@ -14,27 +14,31 @@ export default function EpisodeDetail() {
     const [episodeDetail, setEpisodeDetail] = useState([]);
     const [commentaire, setCommentaire] = useState("");
     const [listeCommentaires, setListeCommentaires] = useState([]);
+    const [charged, setCharged] = useState(false);
 
     useEffect(() => {
-        let mounted = true;
-        axios.get("https://api.betaseries.com/episodes/display", {
-            params: {
-                client_id: "22f661bdce5c",
-                id: state,
-                token: user.token,
-            }
-        }).then(res => {
-            if (mounted) {
-                setEpisodeDetail(res.data.episode);
-                console.log(res.data.episode);
-                setLoading(false);
-            }
-        }).catch(error => {
-            console.log(error.response);
-        })
+        if (!charged) {
+            let mounted = true;
+            axios.get("https://api.betaseries.com/episodes/display", {
+                params: {
+                    client_id: "22f661bdce5c",
+                    id: state,
+                    token: user.token,
+                }
+            }).then(res => {
+                if (mounted) {
+                    setEpisodeDetail(res.data.episode);
+                    console.log(res.data.episode);
+                    setLoading(false);
+                    setCharged(true);
+                }
+            }).catch(error => {
+                console.log(error.response);
+            })
 
-        return function cleanup() {
-            mounted = false;
+            return function cleanup() {
+                mounted = false;
+            }
         }
     });
 
