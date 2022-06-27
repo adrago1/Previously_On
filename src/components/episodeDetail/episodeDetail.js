@@ -36,7 +36,7 @@ export default function EpisodeDetail() {
         return function cleanup() {
             mounted = false;
         }
-    }, []);
+    });
 
     const handleCommentSubmit = (e) => {
         e.preventDefault();

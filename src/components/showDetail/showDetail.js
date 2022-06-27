@@ -38,7 +38,7 @@ export default function ShowDetail() {
             mounted = false;
         }
 
-    }, [])
+    })
 
     const addShowToUser = (e) => {
         e.preventDefault();
@@ -103,6 +103,7 @@ export default function ShowDetail() {
             }
         }).catch(error => {
             console.log(error.response);
+            console.log(marked);
         })
     }
 
@@ -174,7 +175,7 @@ export default function ShowDetail() {
                     </p>
                 </div>
                 <div className="col-span-2">
-                    <img className="-mt-10 w-10/12 float-right" src={showDetails.images.poster} alt="Affiche" />
+                    <img className="-mt-10 w-10/12 float-right" src={showDetails.images.poster} alt={"Affiche de "+showDetails.title} />
                 </div>
             </div>
             }

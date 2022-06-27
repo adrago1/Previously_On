@@ -43,12 +43,13 @@ export default function Friends() {
             }
         }).catch(error => {
             console.log(error.response);
+            console.log(friendRequest);
         })
 
         return function cleanup() {
             mounted = false;
         }
-    }, [])
+    })
 
 
     const handleChange = (e) => {
@@ -95,6 +96,7 @@ export default function Friends() {
         })
     }
 
+    /*
     const handleUnblock = (idUser) => {
         axios.delete("https://api.betaseries.com/friends/block", {
             params: {
@@ -109,6 +111,7 @@ export default function Friends() {
             console.log(error.response);
         })
     }
+    */
 
     const handleDelete = (idUser) => {
         axios.delete("https://api.betaseries.com/friends/friend", {
@@ -150,8 +153,8 @@ export default function Friends() {
                     <p className="mb-8 text-center">ENVOYER UNE DEMANDE</p>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email">Email :</label>
-                        <input name="email" className="text-black w-full" type="text" onChange={handleChange} />
-                        <input className="mt-5 cursor-pointer shadow bg-yellow-300 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Envoyer" />
+                        <input name="email" id="email" className="text-black w-full" type="text" onChange={handleChange} />
+                        <input aria-label="Envoyer le formulaire" className="mt-5 cursor-pointer shadow bg-yellow-300 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Envoyer" />
                     </form>
                 </div>
                 <div className="col-span-2">

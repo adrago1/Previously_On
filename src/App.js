@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import "./style/tailwind.css";
 import "./style/style.css";
 import AuthService from "./services/auth-service";
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 
 import Login from './components/Login/login';
 import Navbar from './components/base/navbar';

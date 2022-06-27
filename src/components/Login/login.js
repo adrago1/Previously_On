@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import Typing from "react-typing-animation";
-import Fade from 'react-reveal/Fade';
-import axios from "axios";
 import AuthService from "../../services/auth-service";
 import CryptoJS from "crypto-js";
 
 export default function Login() {
 
     let messageErreur;
-    const [finishedTyping, setFinishedTyping] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [apiError, setApiError] = useState("");
@@ -38,16 +34,14 @@ export default function Login() {
         <div className="container mx-auto text-center px-30 text-white sm:-mt-16">
             <div className="flex flex-col sm:flex-row items-center justify-around h-screen">
                 <div className="pr-0 sm:pr-24 xl:pr-48 flex-shrink-0 relative">
-                    <Typing className="text-6xl font-cabin" speed={45} onFinishedTyping={() => setFinishedTyping(true)}>
+                    <div className="text-6xl font-cabin">
                         <p>CONNECTE-TOI</p>
                         <p className="mt-7">AVEC TON COMPTE</p>
                         <h6 className="mt-7">BETASERIES<span className="text-yellow-400">.</span></h6>
-                    </Typing>
-                    {finishedTyping && 
-                    <Fade left>
+                    </div>
+                    <>
                         <img className="hidden lg:block absolute inset-y-20 right-0 w-16 h-16" alt="right-arrow" src="./assets/right-arrow.svg" />
-                    </Fade>
-                    }
+                    </>
                 </div>
                 <div className="sm:mt-0 -mt-36 flex font-roboto">
                     <div className="w-full max-w-xs">
