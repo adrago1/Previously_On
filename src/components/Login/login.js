@@ -45,7 +45,7 @@ export default function Login() {
                     </Typing>
                     {finishedTyping && 
                     <Fade left>
-                        <img className="hidden lg:block absolute inset-y-20 right-0 w-16 h-16" src="./assets/right-arrow.svg" />
+                        <img className="hidden lg:block absolute inset-y-20 right-0 w-16 h-16" alt="right-arrow" src="./assets/right-arrow.svg" />
                     </Fade>
                     }
                 </div>

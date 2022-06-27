@@ -69,12 +69,12 @@ export default function Navbar() {
                     <img
                     className="block lg:hidden h-8 w-auto"
                     src={logoSource}
-                    alt=""
+                    alt="logo"
                     />
                     <img
                     className="hidden lg:block h-8 w-auto"
                     src={logoSource}
-                    alt=""
+                    alt="logo"
                     />
                     <h1 className="text-white font-bold px-4">Previously On</h1>
                 </div>
@@ -115,7 +115,7 @@ export default function Navbar() {
                         <img
                         className="h-8 w-8 rounded-full"
                         src={avatar}
-                        alt=""
+                        alt="avatar"
                         />
                     </Menu.Button>
                     </div>
@@ -218,7 +218,7 @@ export default function Navbar() {
                                 <img
                                 className="h-8 w-8 rounded-full"
                                 src={avatar}
-                                alt=""
+                                alt="Avatar"
                                 />
                             </Menu.Button>
                             </div>
