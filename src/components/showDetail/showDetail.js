@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/auth-service";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 export default function ShowDetail() {
 
@@ -138,6 +139,11 @@ export default function ShowDetail() {
     return(
         <>
         <div className="container mx-auto mt-28 text-white">
+            <Helmet>
+                <meta name= "description" content={"Details de la séries "+showDetails.title}/>
+                <link rel="canonical" href= "http://localhost:3000/serie/details"/>
+                <title>{"Previously On - Details "+showDetails.title}</title>
+            </Helmet>
             {loading ? <p className="text-center mx-auto text-2xl font-cabin mt-28 uppercase font-bold">Chargement des informations...</p> :
             <div className="grid grid-cols-5 gap-20 text-xl">
                 <div className="col-span-1 text-right">
@@ -181,7 +187,7 @@ export default function ShowDetail() {
             }
         {loading ? <p></p> :
             <div className="container mx-auto mt-36 mb-9">
-                <h2 onClick={displayEpisodes} className="cursor-pointer text-center -mt-12 text-yellow-400 font-roboto text-2xl uppercase font-bold"><span className="p-2 bg-gray-700 rounded-xl filter contrast-150 bg-opacity-80">Episodes &#9660;</span></h2>
+                <h2 tabIndex={0}  onClick={displayEpisodes} className="cursor-pointer text-center -mt-12 text-yellow-400 font-roboto text-2xl uppercase font-bold"><span className="p-2 bg-gray-700 rounded-xl filter contrast-150 bg-opacity-80">Episodes &#9660;</span></h2>
                 <div className="grid grid-cols-7 gap-12 mt-12">
                     {episodes.map(function(data) {
                         return (

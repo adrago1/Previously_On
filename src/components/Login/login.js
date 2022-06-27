@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AuthService from "../../services/auth-service";
 import CryptoJS from "crypto-js";
+import Helmet from "react-helmet";
 
 export default function Login() {
 
@@ -32,6 +33,11 @@ export default function Login() {
 
     return (
         <div className="container mx-auto text-center px-30 text-white sm:-mt-16">
+            <Helmet>
+                <meta name= "description" content="Pages de logins"/>
+                <link rel="canonical" href= "http://localhost:3000/login"/>
+                <title>Previously On - Login</title>
+            </Helmet>
             <div className="flex flex-col sm:flex-row items-center justify-around h-screen">
                 <div className="pr-0 sm:pr-24 xl:pr-48 flex-shrink-0 relative">
                     <div className="text-6xl font-cabin">
