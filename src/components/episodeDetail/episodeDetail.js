@@ -85,7 +85,7 @@ export default function EpisodeDetail() {
         <div className="container mx-auto mt-28 text-white">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content={"Details de l'épisode :" + episodeDetail.title}/>
+                    <meta name= "description" content={"Details de l'épisode '" + episodeDetail.title + "' de la série '" + episodeDetail.show.title + "'"}/>
                     <link rel="canonical" href= "http://localhost:3000/episode/details"/>
                     <title>{"Previously On - Details "+episodeDetail.title}</title>
                 </Helmet>

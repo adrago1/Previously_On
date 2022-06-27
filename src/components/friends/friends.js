@@ -137,7 +137,7 @@ export default function Friends() {
         <div className="container mx-auto mt-24 border w-3/4 text-white text-xl">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content="Liste D'amis"/>
+                    <meta name= "description" content="Votre liste d'amis ainsi que la possibilité de les gérer"/>
                     <link rel="canonical" href= "http://localhost:3000/friends"/>
                     <title>Previously On - Liste des amies</title>
                 </Helmet>      

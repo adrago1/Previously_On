@@ -70,7 +70,7 @@ export default function ShowList() {
         <div className="container mx-auto text-white mt-7 mb-10">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content="Recherche de séries"/>
+                    <meta name= "description" content="Recherchez vos séries favorites et rajoutez les à votre collection"/>
                     <link rel="canonical" href= "http://localhost:3000/series"/>
                     <title>Previously On - Recherche de séries</title>
                 </Helmet>

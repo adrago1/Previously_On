@@ -31,7 +31,7 @@ export default function UserSeries() {
         <div className="container mx-auto mt-24">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content="Vos séries"/>
+                    <meta name= "description" content="La liste de vos séries favorites du moment"/>
                     <link rel="canonical" href= "http://localhost:3000/home"/>
                     <title>Previously On - Vos séries</title>
                 </Helmet>

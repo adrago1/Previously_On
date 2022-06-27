@@ -35,7 +35,7 @@ export default function Login() {
         <div className="container mx-auto text-center px-30 text-white sm:-mt-16">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content="Pages de logins"/>
+                    <meta name= "description" content="Connectez-vous à notre application grâce à votre compte Betaseries !"/>
                     <link rel="canonical" href= "http://localhost:3000/login"/>
                     <title>Previously On - Login</title>
                 </Helmet>

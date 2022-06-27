@@ -143,7 +143,7 @@ export default function ShowDetail() {
         <div className="container mx-auto mt-28 text-white">
             <HelmetProvider>
                 <Helmet>
-                    <meta name= "description" content={"Details de la séries "+showDetails.title}/>
+                    <meta name= "description" content={"Informations sur la série "+showDetails.title}/>
                     <link rel="canonical" href= "http://localhost:3000/serie/details"/>
                     <title>{"Previously On - Details "+showDetails.title}</title>
                 </Helmet>
