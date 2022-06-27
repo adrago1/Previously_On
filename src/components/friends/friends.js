@@ -150,8 +150,8 @@ export default function Friends() {
                     <p className="mb-8 text-center">ENVOYER UNE DEMANDE</p>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email">Email :</label>
-                        <input name="email" className="text-black w-full" type="text" onChange={handleChange} />
-                        <input className="mt-5 cursor-pointer shadow bg-yellow-300 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Envoyer" />
+                        <input name="email" id="email" className="text-black w-full" type="text" onChange={handleChange} />
+                        <input aria-label="Envoyer le formulaire" className="mt-5 cursor-pointer shadow bg-yellow-300 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Envoyer" />
                     </form>
                 </div>
                 <div className="col-span-2">

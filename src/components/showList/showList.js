@@ -50,8 +50,8 @@ export default function ShowList() {
             {loading ? <p className="text-center mx-auto text-2xl font-cabin mt-28 uppercase font-bold">Chargement des séries...</p> : 
             <div className="grid grid-cols-3">
                 <div className="col-span-1">
-                    <label className="block mb-2 font-cabin text-2xl" htmlFor="name">Rechercher une série</label>
-                    <input type="text" className="text-black" name="name" onChange={(e) => {setSearchByName(e.target.value)}} />
+                    <label className="block mb-2 font-cabin text-2xl" htmlFor="nameInput">Rechercher une série</label>
+                    <input type="text" className="text-black" name="name" aria-label="Champ pour recherche de séries" id="nameInput" onChange={(e) => {setSearchByName(e.target.value)}} />
                 </div>
                 <div className="grid gap-x-8 gap-y-8 gap col-span-2 grid-cols-2">
                     {currentShowArray.map(function(data) {
@@ -59,7 +59,7 @@ export default function ShowList() {
                             <div className="font-roboto rounded-r-lg bg-gray-500 bg-opacity-30">
                                 <Link to={{pathname: '/serie/details', state: data.id}}><img src={data.images.poster} alt={"Affiche de la série "+data.title} href="Affiche de série" className="float-left w-2/5 mr-2"/></Link>
                                 <div className="infos-thumb-show my-1">
-                                    <Link to={{pathname: '/serie/details', state: data.id}} className="text-xl text-yellow-400 font-bold filter contrast-150">{data.title}</Link>
+                                    <Link to={{pathname: '/serie/details', state: data.id}} aria className="text-xl text-yellow-400 font-bold filter contrast-150">{data.title}</Link>
                                     <div className="mt-5">
                                         <p>Saisons : {data.seasons}</p>
                                         <p>Episodes : {data.episodes}</p>
