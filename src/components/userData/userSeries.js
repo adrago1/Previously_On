@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import AuthService from "../../services/auth-service";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 export default function UserSeries() {
 
@@ -28,6 +29,11 @@ export default function UserSeries() {
 
     return(
         <div className="container mx-auto mt-24">
+            <Helmet>
+                <meta name= "description" content="Vos séries"/>
+                <link rel="canonical" href= "http://localhost:3000/home"/>
+                <title>Previously On - Vos séries</title>
+            </Helmet>
             <div className="grid place-items-center content-center lg:grid-cols-3 gap-5 gap-y-40 text-">
                 {seriesList.map(function(data) {
                     return(

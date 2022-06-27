@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/auth-service";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 export default function ShowDetail() {
 
@@ -140,6 +141,11 @@ export default function ShowDetail() {
     return(
         <>
         <div className="container mx-auto mt-28 text-white">
+            <Helmet>
+                <meta name= "description" content={"Details de la séries "+showDetails.title}/>
+                <link rel="canonical" href= "http://localhost:3000/serie/details"/>
+                <title>{"Previously On - Details "+showDetails.title}</title>
+            </Helmet>
             {loading ? <p className="text-center mx-auto text-2xl font-cabin mt-28 uppercase font-bold">Chargement des informations...</p> :
             <div className="grid grid-cols-5 gap-20 text-xl">
                 <div className="col-span-1 text-right">

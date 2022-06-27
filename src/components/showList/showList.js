@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import Pagination from '../base/pagination';
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 let PageSize = 12;
 
@@ -67,6 +68,11 @@ export default function ShowList() {
     
     return (
         <div className="container mx-auto text-white mt-7 mb-10">
+            <Helmet>
+                <meta name= "description" content="Recherche de séries"/>
+                <link rel="canonical" href= "http://localhost:3000/series"/>
+                <title>Previously On - Recherche de séries</title>
+            </Helmet>
             {loading ? <p className="text-center mx-auto text-2xl font-cabin mt-28 uppercase font-bold">Chargement des séries...</p> : 
             <div className="grid grid-cols-3">
                 <div className="col-span-1">
