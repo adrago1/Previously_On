@@ -29,7 +29,7 @@ export default function UserSeries() {
                     return(
                         <div className="serie-grid">
                             <Link to={{pathname: '/serie/details', state: data.id}}>
-                            <img src={data.images.poster} alt="Serie" className="w-8/12 mx-auto" />
+                            <img src={data.images.poster} alt={"Série "+data.title} className="w-8/12 mx-auto" />
                             <p className="text-center pt-5 pb-5 bg-gradient-to-r from-transparent to-gray-500 rounded-b-lg w-2/3 mx-auto text-xl text-white uppercase font-roboto">{data.title}</p>
                             </Link>
                         </div>

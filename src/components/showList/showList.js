@@ -57,7 +57,7 @@ export default function ShowList() {
                     {currentShowArray.map(function(data) {
                         return(
                             <div className="font-roboto rounded-r-lg bg-gray-500 bg-opacity-30">
-                                <Link to={{pathname: '/serie/details', state: data.id}}><img src={data.images.poster} alt="affiche de la série" href="Affiche de série" className="float-left w-2/5 mr-2"/></Link>
+                                <Link to={{pathname: '/serie/details', state: data.id}}><img src={data.images.poster} alt={"Affiche de la série "+data.title} href="Affiche de série" className="float-left w-2/5 mr-2"/></Link>
                                 <div className="infos-thumb-show my-1">
                                     <Link to={{pathname: '/serie/details', state: data.id}} className="text-xl text-yellow-400 font-bold filter contrast-150">{data.title}</Link>
                                     <div className="mt-5">

@@ -174,7 +174,7 @@ export default function ShowDetail() {
                     </p>
                 </div>
                 <div className="col-span-2">
-                    <img className="-mt-10 w-10/12 float-right" src={showDetails.images.poster} alt="Affiche" />
+                    <img className="-mt-10 w-10/12 float-right" src={showDetails.images.poster} alt={"Affiche de "+showDetails.title} />
                 </div>
             </div>
             }
